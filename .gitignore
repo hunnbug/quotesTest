@@ -1,0 +1,6 @@
+qtest_linux_amd64
+qtest_linux_arm64
+qtest_macos_amd64
+qtest_macos_arm64
+qtest_windows_amd64.exe
+qtest_windows_x86-32.exe
