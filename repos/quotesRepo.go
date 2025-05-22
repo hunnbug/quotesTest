@@ -118,7 +118,15 @@ func (q *QuotesRepo) Delete(ctx context.Context, id int) error {
 
 	q.Quotes = slices.Delete(q.Quotes, id, id+1)
 
-	q.lastQuoteID--
+	if q.lastQuoteID > 0 {
+		q.lastQuoteID--
+	}
+
+	if len(q.Quotes) > 0 {
+		for i := id; i < len(q.Quotes); i++ {
+			q.Quotes[i].ID--
+		}
+	}
 
 	return nil
 
