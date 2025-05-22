@@ -4,7 +4,6 @@ import (
 	"context"
 	"crypto/rand"
 	"errors"
-	"fmt"
 	"math/big"
 	"quotes/models"
 	"slices"
@@ -120,8 +119,6 @@ func (q *QuotesRepo) Delete(ctx context.Context, id int) error {
 	q.Quotes = slices.Delete(q.Quotes, id, id+1)
 
 	q.lastQuoteID--
-
-	fmt.Println(q.Quotes, q.lastQuoteID)
 
 	return nil
 
